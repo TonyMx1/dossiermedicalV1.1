@@ -1,0 +1,12 @@
+<%- include("templates/encabezado.ejs")%>
+<div class="registrar">
+<h1 class="cont">Iniciar sesión</h1>
+  <form method="POST" action="/sesion">
+    <label for="email">Correo electrónico:</label><br>
+    <input type="email" id="email" name="email" required><br><br>
+    <label for="password">Contraseña:</label><br>
+    <input type="password" id="password" name="password" required><br><br>
+    <input type="submit" value="Iniciar sesión">
+  </form>
+</div>
+<%- include("templates/pie.ejs")%>

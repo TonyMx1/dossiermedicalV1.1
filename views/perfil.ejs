@@ -1,0 +1,10 @@
+<%- include("templates/encabezado.ejs")%>
+<div class="registrar">
+  <h1 class="cont">Perfil</h1>
+  <img src="/web/media/doctor-1295571_1280.webp" alt="Foto de perfil" style="width: 160px; height: 200px;">
+  <h2 class="cont">Bienvenido, <%= user.fullName %>!</h2>
+  <a href="/agenda">Revisar agenda clínica</a>
+  <br><br>
+  <a href="/logout">Cerrar sesión</a>
+</div>
+<%- include("templates/pie.ejs")%>
