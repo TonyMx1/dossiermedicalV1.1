@@ -1,21 +1,16 @@
 <%- include("templates/encabezado.ejs")%>
 <center>
-<header class="menuAcceder"><h1 class="cont">Ingresa tu usuario de Dossier Medical</h1></header>
-    <img src="/web/media/doctor-1295571_1280.webp" class="logoLogin">
+<header class="menuAcceder"><h1 class="cont">BIENVENIDO ADMINISTRADOR</h1></header>
+    <img src="/web/media/81591.png" class="logoLogin">
     <br>
     <br>
     <form action="/acceder" method="post" class="acceder">
-        <label for="correo">Ingresa tu usuario</label>
+        <label for="correo">Ingresa tu usuario de administrador</label>
         <input type="text" name="usuario" id="usuario" placeholder="USUARIO"><br><br>
         <label for="contra">Ingresa tu contraseña</label>
         <input type="password" name="password" id="password" placeholder="CONTRASEÑA"><br><br>
         <button type="submit">Acceder</button>
     </form>
     <br>
-    
-    <label class="registrarse">Aún no te haz registrado?
-        <br>
-        Hazlo dando clic <a href="registro.html">AQUI</a>
-    </label>
 </center>
 <%- include("templates/pie.ejs")%>

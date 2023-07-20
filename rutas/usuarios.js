@@ -17,8 +17,12 @@ rutas.get("/contactanos",(req,res)=>{
     res.send("Contactanos");
 });
 
+rutas.get("/accederAdmin",(req,res)=>{
+    res.render("accederAdmin");
+});
+
 rutas.post("/acceder", (req, res)=>{
-    if(req.body.usuario=="admin" && req.body.password=="admin"){
+    if(req.body.usuario=="administrador" && req.body.password=="admin"){
         req.session.usuario=req.body.usuario;
         res.redirect("/bienvenido");
     }
