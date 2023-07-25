@@ -1,6 +1,12 @@
 var rutas=require("express").Router();
 const fs = require('fs');
 
+function readProductsFromDB() {
+    let dbPath = "./web/data/products.json"
+    var data = fs.readFileSync(dbPath, 'utf8');
+    return JSON.parse(data);
+}
+
 rutas.get("/",(req,res)=>{
     res.render("index");
 })
@@ -103,6 +109,86 @@ rutas.get('/sesion', (req, res) => {
   
     res.render('perfil', { user });
   });
-  
+
+
+function saveProductsToDB(products) {
+    fs.writeFileSync(dbPath, JSON.stringify(products, null, 4), 'utf8');
+}
+
+
+rutas.get('/pacientes', (req, res) => {
+    const products = readProductsFromDB();
+    res.render('pacientes', { products });
+});
+
+
+rutas.get('/add', (req, res) => {
+    res.render('add_product');
+});
+
+
+rutas.post('/add', (req, res) => {
+    const products = readProductsFromDB();
+    const newProduct = {
+        id: Date.now(),
+        nombre: req.body.nombre,
+        precio: parseFloat(req.body.precio),
+        fecha: req.body.fecha,
+        hora: req.body.hora,
+        consultorio: req.body.consultorio,
+    };
+    products.push(newProduct);
+    saveProductsToDB(products);
+    res.redirect('/');
+});
+
+
+rutas.get('/edit/:id', (req, res) => {
+    const products = readProductsFromDB();
+    const product = products.find((item) => item.id === parseInt(req.params.id));
+    res.render('edit_product', { product });
+});
+
+
+rutas.post('/edit/:id', (req, res) => {
+    const products = readProductsFromDB();
+    const productIndex = products.findIndex((item) => item.id === parseInt(req.params.id));
+    if (productIndex !== -1) {
+        products[productIndex].nombre = req.body.nombre;
+        products[productIndex].precio = parseFloat(req.body.precio);
+        products[productIndex].fecha = req.body.fecha;
+        products[productIndex].hora = req.body.hora;
+        products[productIndex].consultorio = req.body.consultorio;
+        saveProductsToDB(products);
+    }
+    res.redirect('/');
+});
+
+
+rutas.get('/delete/:id', (req, res) => {
+    const products = readProductsFromDB();
+    const updatedProducts = products.filter((item) => item.id !== parseInt(req.params.id));
+    saveProductsToDB(updatedProducts);
+    res.redirect('/');
+});
+
+
+rutas.get("/add_product",(req,res)=>{
+    res.render("add_product");
+});
+
+
+rutas.get("/pacientes",(req,res)=>{
+    res.render("pacientes");
+});
+
+rutas.get("/bienvenido",(req,res)=>{
+    res.render("bienvenido");
+});
+
+rutas.get("/edit_product",(req,res)=>{
+    res.render("edit_product");
+})
+
 
 module.exports=rutas;

@@ -120,3 +120,7 @@ li a:hover:not(.active) {
 .registrar{
     text-align: center;
 }
+
+.resaltado{
+    font-weight: bold;
+}

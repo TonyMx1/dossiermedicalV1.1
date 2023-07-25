@@ -1,0 +1,17 @@
+<%- include("templates/encabezado.ejs")%>
+    <h1>Editar Paciente</h1>
+    <form action="/edit/<%= product.id %>" method="post">
+        <label for="nombre">Nombre:</label>
+        <input type="text" name="nombre" value="<%= product.nombre %>" required>
+        <label for="precio">Precio:</label>
+        <input type="number" name="precio" value="<%= product.precio %>" required>
+        <label for="fecha">Fecha:</label>
+        <input type="date" name="fecha" value="<%= product.fecha %>" required>
+        <label for="hora">Hora:</label>
+        <input type="time" name="hora" value="<%= product.hora %>" required>
+        <label for="consultorio">Consultorio:</label>
+        <input type="text" name="consultorio" value="<%= product.consultorio %>" required>
+        <button type="submit">Guardar cambios</button>
+    </form>
+    <a href="/pacientes"><button>Volver a la lista de pacientes</button></a>
+    <%- include("templates/pie")%>

@@ -1,0 +1,28 @@
+<%- include("templates/header.ejs")%>
+
+    <h1 class="cont">Lista de pacientes</h1>
+    
+    <ul class="pacientes">
+        <% products.forEach((product) => { %>
+            <li class="pacientes">
+                <ul class="pacientes">
+                    <li class="pacientes"><span class="resaltado">Paciente:</span> <%= product.nombre %></li>
+                    <li class="pacientes"><span class="resaltado">Precio consulta:</span> $<%= product.precio %></li>
+                    <li class="pacientes"><span class="resaltado">Fecha consulta:</span> <%= product.fecha %></li>
+                    <li class="pacientes"><span class="resaltado">Hora seleccionada:</span> <%= product.hora %></li>
+                    <li class="pacientes"><span class="resaltado">Consultorio:</span> <%= product.consultorio %></li>
+                </ul>
+            </li>
+        </ul>
+        <br>
+                <a href="/edit/<%= product.id %>">Editar</a>
+                <a href="/delete/<%= product.id %>">Borrar</a>
+            
+        <% }) %>
+    
+    <br>
+    <br>
+    <a href="/add"><button>Agregar Nuevo Paciente</button></a>
+
+    
+<%- include("templates/pie.ejs")%>

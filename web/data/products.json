@@ -1,0 +1,18 @@
+[
+    {
+        "id": 1690262156652,
+        "nombre": "carlos",
+        "precio": 3888,
+        "fecha": "2023-07-24",
+        "hora": "23:15",
+        "consultorio": "Torre roja"
+    },
+    {
+        "id": 1690262388852,
+        "nombre": "antonio",
+        "precio": 33636,
+        "fecha": "2023-07-24",
+        "hora": "23:19",
+        "consultorio": "Torre roja"
+    }
+]

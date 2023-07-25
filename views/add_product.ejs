@@ -1,0 +1,20 @@
+<%- include("templates/encabezado.ejs")%>
+    <h1>Agregar Nuevo Paciente </h1>
+    <form action="/add" method="post">
+        <label for="nombre">Nombre:</label>
+        <input type="text" name="nombre" required>
+        <label for="precio">Precio:</label>
+        <input type="number" name="precio" required>
+        <label for="fecha">Fecha:</label>
+        <input type="date" name="fecha" required>
+        <label for="hora">Hora:</label>
+        <input type="time" name="hora" required>
+        <label for="consultorio">Consultorio:</label>
+        <input type="text" name="consultorio" required>
+        <button type="submit">Agregar</button>
+    </form>
+    <br>
+    <br>
+    <a href="/pacientes"><button>Volver a la lista de pacientes</button></a>
+
+    <%- include("templates/pie")%>

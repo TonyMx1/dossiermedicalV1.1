@@ -1,0 +1,27 @@
+body{
+    background-image: url(/web/media/fondo.png);
+    size-adjust: auto;
+}
+
+.logoLogin{
+    height: 200px;   
+}
+
+.logo{
+    height: 10%;
+    width: 10%;
+    display: block; margin: auto;
+}
+
+.cont{
+    text-align: center;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.registrar{
+    text-align: center;
+}
+
+.resaltado{
+    font-weight: bold;
+}
