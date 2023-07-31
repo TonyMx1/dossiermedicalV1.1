@@ -1,0 +1,22 @@
+<%- include("templates/header.ejs")%>
+
+    <title>Agregar Nuevo Médico</title>
+
+<body>
+    <h1>Agregar Nuevo Médico</h1>
+    <form action="/add" method="post">
+        <label for="nombre">Médico:</label>
+        <input type="text" name="nombre" required>
+        <label for="precio">Mensualidad:</label>
+        <input type="number" name="precio" required>
+        <label for="fecha">Fecha de Pago (Transferencia bancaria):</label>
+        <input type="date" name="fecha" required>
+        <label for="hora">Hora de Pago:</label>
+        <input type="time" name="hora" required>
+        <label for="consultorio">Especialidad:</label>
+        <input type="text" name="consultorio" required>
+        <button type="submit">Agregar</button>
+    </form>
+    <a href="/listmed"><button>Volver a la lista de Usuarios (Medicos)</button></a>
+    
+    <%- include("templates/pie.ejs")%>

@@ -1,0 +1,29 @@
+<%- include("templates/header.ejs")%>
+
+    <title>Lista de Usuarios (Médicos)</title>
+    <style>
+        .resaltado { font-weight: bold; }
+    </style>
+
+    <h1>Lista de Usuarios (Médicos)</h1>
+    <ul>
+        <% users.forEach((user) => { %>
+            <li>
+                <ul>
+                    <li><span class="resaltado">Médico:</span> <%= user.nombre %></li>
+                    <li><span class="resaltado">Mensualidad:</span> $<%= user.precio %></li>
+                    <li><span class="resaltado">Fecha de Pago (Transferencia bancaria):</span> <%= user.fecha %></li>
+                    <li><span class="resaltado">Hora de Pago:</span> <%= user.hora %></li>
+                    <li><span class="resaltado">Especialidad:</span> <%= user.consultorio %></li>
+                </ul>
+                <a href="/edit/<%= user.id %>"><button>Editar</button></a>
+                <a href="/delete/<%= user.id %>"><button>Borrar</button></a>
+            </li>
+        <% }); %>
+    </ul>
+    <a href="/add"><button>Agregar Nuevo Médico</button></a>
+
+
+
+<%- include("templates/pie.ejs")%>
+

@@ -1,0 +1,22 @@
+<%- include("templates/header.ejs")%>
+
+    <title>Editar Usuario (Médico)</title>
+
+<body>
+    <h1>Editar Usuario (Médico)</h1>
+    <form action="/edit/<%= user.id %>" method="post">
+        <label for="nombre">Médico:</label>
+        <input type="text" name="nombre" value="<%= user.nombre %>" required>
+        <label for="precio">Mensualidad:</label>
+        <input type="number" name="precio" value="<%= user.precio %>" required>
+        <label for="fecha">Fecha de Pago (Transferencia bancaria):</label>
+        <input type="date" name="fecha" value="<%= user.fecha %>" required>
+        <label for="hora">Hora de Pago:</label>
+        <input type="time" name="hora" value="<%= user.hora %>" required>
+        <label for="consultorio">Especialidad:</label>
+        <input type="text" name="consultorio" value="<%= user.consultorio %>" required>
+        <button type="submit">Guardar cambios</button>
+    </form>
+    <a href="/listmed">Volver a la lista de Usuarios (Médicos)</a>
+
+<%- include("templates/pie.ejs")%>

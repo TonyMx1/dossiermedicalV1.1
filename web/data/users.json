@@ -1,0 +1,34 @@
+[
+    {
+        "id": 1690567038548,
+        "nombre": "Dra. Ana García",
+        "precio": 1000,
+        "fecha": "2023-07-02",
+        "hora": "15:56",
+        "consultorio": "Dermatología"
+    },
+    {
+        "id": 1690567204166,
+        "nombre": "Dra. Carmen López ",
+        "precio": 1200,
+        "fecha": "2023-07-17",
+        "hora": "17:01",
+        "consultorio": "Pediatría"
+    },
+    {
+        "id": 1690567259665,
+        "nombre": "Dr. Ricardo Martínez",
+        "precio": 3000,
+        "fecha": "2023-07-19",
+        "hora": "15:04",
+        "consultorio": "Ginecología"
+    },
+    {
+        "id": 1690568285896,
+        "nombre": "Dr. Juan Rodríguez",
+        "precio": 1000,
+        "fecha": "2023-07-14",
+        "hora": "16:20",
+        "consultorio": "Medicina Interna"
+    }
+]

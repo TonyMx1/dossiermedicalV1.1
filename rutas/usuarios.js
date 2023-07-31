@@ -7,6 +7,18 @@ function readProductsFromDB() {
     return JSON.parse(data);
 }
 
+function readProductsFromDB() {
+    let dbPath = "./web/data/users.json"
+    var data = fs.readFileSync(dbPath, 'utf8');
+    return JSON.parse(data);
+}
+
+const dbPath = './web/data/users.json';
+function readUsersFromDB() {
+    const data = fs.readFileSync(dbPath, 'utf8');
+    return JSON.parse(data);
+}
+
 rutas.get("/",(req,res)=>{
     res.render("index");
 })
@@ -188,7 +200,68 @@ rutas.get("/bienvenido",(req,res)=>{
 
 rutas.get("/edit_product",(req,res)=>{
     res.render("edit_product");
-})
+});
+
+function saveUsersToDB(users) {
+    fs.writeFileSync(dbPath, JSON.stringify(users, null, 4), 'utf8');
+}
+
+
+rutas.get('/listmed', (req, res) => {
+    const users = readUsersFromDB();
+    res.render('listmed', { users });
+});
+
+
+rutas.get('/add', (req, res) => {
+    res.render('add_user');
+});
+
+
+rutas.post('/add', (req, res) => {
+    const users = readUsersFromDB();
+    const newUser = {
+        id: Date.now(),
+        nombre: req.body.nombre,
+        precio: parseFloat(req.body.precio),
+        fecha: req.body.fecha,
+        hora: req.body.hora,
+        consultorio: req.body.consultorio,
+    };
+    users.push(newUser);
+    saveUsersToDB(users);
+    res.redirect('/listmed');
+});
+
+
+rutas.get('/edit/:id', (req, res) => {
+    const users = readUsersFromDB();
+    const user = users.find((item) => item.id === parseInt(req.params.id));
+    res.render('edit_user', { user });
+});
+
+
+rutas.post('/edit/:id', (req, res) => {
+    const users = readUsersFromDB();
+    const userIndex = users.findIndex((item) => item.id === parseInt(req.params.id));
+    if (userIndex !== -1) {
+        users[userIndex].nombre = req.body.nombre;
+        users[userIndex].precio = parseFloat(req.body.precio);
+        users[userIndex].fecha = req.body.fecha;
+        users[userIndex].hora = req.body.hora;
+        users[userIndex].consultorio = req.body.consultorio;
+        saveUsersToDB(users);
+    }
+    res.redirect('/listmed');
+});
+
+
+rutas.get('/delete/:id', (req, res) => {
+    const users = readUsersFromDB();
+    const updatedUsers = users.filter((item) => item.id !== parseInt(req.params.id));
+    saveUsersToDB(updatedUsers);
+    res.redirect('/listmed');
+});
 
 
 module.exports=rutas;
