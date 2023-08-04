@@ -42,7 +42,7 @@ rutas.get("/accederAdmin",(req,res)=>{
 rutas.post("/acceder", (req, res)=>{
     if(req.body.usuario=="administrador" && req.body.password=="admin"){
         req.session.usuario=req.body.usuario;
-        res.redirect("/bienvenido");
+        res.redirect("/listmed");
     }
     else{
         res.redirect("/error");

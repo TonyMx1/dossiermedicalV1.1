@@ -69,8 +69,13 @@ li a:hover:not(.active) {
 }
 
 .whatsapp{
-    height: 10%;
-    width: 10%;
+    height: 15%;
+    width: 15%;
+}
+
+.telegram{
+    height: 40%;
+    width: 40%;
 }
 
 .registrarse{
@@ -123,4 +128,9 @@ li a:hover:not(.active) {
 
 .resaltado{
     font-weight: bold;
+}
+
+.error{
+    text-align: center;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
