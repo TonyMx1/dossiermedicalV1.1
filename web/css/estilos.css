@@ -6,7 +6,11 @@ body{
 #barra-nav{
     pointer-events: none;
     background-color: black;
- }
+}
+
+.avisodepriv{
+    text-align: justify;
+}
 
 .tit{
     font-family: 'Times New Roman', Times, serif;
@@ -32,6 +36,10 @@ body{
     height: 10%;
     width: 10%;
     display: block; margin: auto;
+}
+
+.num{
+    float: none;
 }
 
 ul {
