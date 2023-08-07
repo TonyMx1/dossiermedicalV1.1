@@ -16,19 +16,11 @@
         "consultorio": "Pediatría"
     },
     {
-        "id": 1690567259665,
-        "nombre": "Dr. Ricardo Martínez",
-        "precio": 3000,
-        "fecha": "2023-07-19",
-        "hora": "15:04",
-        "consultorio": "Ginecología"
-    },
-    {
-        "id": 1690568285896,
-        "nombre": "Dr. Juan Rodríguez",
+        "id": 1691436563129,
+        "nombre": "Carlos",
         "precio": 1000,
-        "fecha": "2023-07-14",
-        "hora": "16:20",
-        "consultorio": "Medicina Interna"
+        "fecha": "2023-08-08",
+        "hora": "13:00",
+        "consultorio": "Centro"
     }
 ]

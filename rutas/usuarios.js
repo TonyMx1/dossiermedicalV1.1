@@ -151,7 +151,7 @@ rutas.post('/add', (req, res) => {
     };
     products.push(newProduct);
     saveProductsToDB(products);
-    res.redirect('/');
+    res.redirect('/listmed');
 });
 
 
@@ -173,7 +173,7 @@ rutas.post('/edit/:id', (req, res) => {
         products[productIndex].consultorio = req.body.consultorio;
         saveProductsToDB(products);
     }
-    res.redirect('/');
+    res.redirect('/listmed');
 });
 
 
@@ -181,7 +181,7 @@ rutas.get('/delete/:id', (req, res) => {
     const products = readProductsFromDB();
     const updatedProducts = products.filter((item) => item.id !== parseInt(req.params.id));
     saveProductsToDB(updatedProducts);
-    res.redirect('/');
+    res.redirect('/listmed');
 });
 
 
