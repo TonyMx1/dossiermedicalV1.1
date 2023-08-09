@@ -1,5 +1,7 @@
 var rutas=require("express").Router();
+const { Router } = require("express");
 const fs = require('fs');
+
 
 function readProductsFromDB() {
     let dbPath = "./web/data/products.json"
@@ -98,7 +100,11 @@ rutas.post('/registrar', (req, res) => {
   
     res.redirect('/sesion');
   });
-  
+
+rutas.get('/perfil',(req, res)=>{
+   const session = req.session; // Obtén la sesión del usuario
+   res.render('perfil', { session });
+});
   
 rutas.get('/sesion', (req, res) => {
     res.render('sesion');
@@ -263,5 +269,11 @@ rutas.get('/delete/:id', (req, res) => {
     res.redirect('/listmed');
 });
 
+
+rutas.get('/logout', (req, res) => {
+    // Eliminar la sesion del usuario
+    req.session.destroy();
+    res.redirect('/inicio');
+});
 
 module.exports=rutas;

@@ -1,29 +1,32 @@
-<%- include("templates/header.ejs")%>
-
+<%- include("templates/encabezado.ejs")%>
+<br>
+<br>
+<a href="/logout"><button>Cerrar Sesion</button></a>
+<br>
     <title>Lista de Usuarios (Médicos)</title>
     <style>
         .resaltado { font-weight: bold; }
     </style>
 
     <h1>Lista de Usuarios (Médicos)</h1>
-    <ul>
+    <dl>
         <% users.forEach((user) => { %>
-            <li>
-                <ul>
-                    <li><span class="resaltado">Médico:</span> <%= user.nombre %></li>
-                    <li><span class="resaltado">Mensualidad:</span> $<%= user.precio %></li>
-                    <li><span class="resaltado">Fecha de Pago (Transferencia bancaria):</span> <%= user.fecha %></li>
-                    <li><span class="resaltado">Hora de Pago:</span> <%= user.hora %></li>
-                    <li><span class="resaltado">Especialidad:</span> <%= user.consultorio %></li>
-                </ul>
+            <dl>
+                <dl>
+                    <dt ><span class="resaltado">Médico:</span> <%= user.nombre %></dt>
+                    <dt ><span class="resaltado">Mensualidad:</span> $<%= user.precio %></li>
+                    <dt><span class="resaltado">Fecha de Pago (Transferencia bancaria):</span> <%= user.fecha %></dt>
+                    <dt><span class="resaltado">Hora de Pago:</span> <%= user.hora %></li>
+                    <dt><span class="resaltado">Especialidad:</span> <%= user.consultorio %></dt>
+                </dl>
                 <a href="/edit/<%= user.id %>"><button>Editar</button></a>
                 <a href="/delete/<%= user.id %>"><button>Borrar</button></a>
-            </li>
+            </>
         <% }); %>
-    </ul>
+            </dl>
     <a href="/add"><button>Agregar Nuevo Médico</button></a>
-
-
+<br>
+<br>
 
 <%- include("templates/pie.ejs")%>
 
