@@ -21,6 +21,10 @@ function readUsersFromDB() {
     return JSON.parse(data);
 }
 
+rutas.get("/chat",(req,res)=>{
+    res.render("chat");
+})
+
 rutas.get("/",(req,res)=>{
     res.render("index");
 })
